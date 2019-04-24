@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+ ! Excerpted from "Pragmatic Unit Testing in Java with JUnit",
+ ! published by The Pragmatic Bookshelf.
+ ! Copyrights apply to this code. It may not be used to create training material, 
+ ! courses, books, articles, and the like. Contact us if you are in doubt.
+ ! We make no guarantees that this code is fit for any purpose. 
+ ! Visit http://www.pragmaticprogrammer.com/titles/utj2 for more book information.
+-->
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+<persistence-unit name="postgres-ds" transaction-type="RESOURCE_LOCAL">
+  <description>postgres persistence unit</description>
+  <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+  <class>iloveyouboss.domain.BooleanQuestion</class>
+  <class>iloveyouboss.domain.PercentileQuestion</class>
+
+  <properties>
+    <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+    <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/iloveyouboss" />
+    <property name="javax.persistence.jdbc.user" value="jlangr" />
+    <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+<!--   <property name="hibernate.hbm2ddl.auto" value="create" />   -->
+    <property name="hibernate.show_sql" value="false" />
+    <property name="hibernate.format_sql" value="true" />
+    <property name="hibernate.transaction.flush_before_completion" value="true" />
+    <property name="log4j.logging.level" value="ERROR"/>
+  </properties>
+</persistence-unit>
+</persistence>
