@@ -89,7 +89,7 @@ public class ProfileTest {
    public void doesNotMatchWhenNoneOfMultipleCriteriaMatch() {
       profile.add(answerDoesNotReimburseTuition);
       Criteria criteria = new Criteria();
-      criteria.add(new Criterion(answerThereIsRelo, Weight.Important));
+      criteria.add(new Criterion(answerThereIsRelocation, Weight.Important));
       criteria.add(new Criterion(answerReimbursesTuition, Weight.Important));
       
       boolean result = profile.matches(criteria);
@@ -99,9 +99,9 @@ public class ProfileTest {
 
    @Test
    public void matchesWhenAnyOfMultipleCriteriaMatch() {
-      profile.add(answerThereIsRelo);
+      profile.add(answerThereIsRelocation);
       Criteria criteria = new Criteria();
-      criteria.add(new Criterion(answerThereIsRelo, Weight.Important));
+      criteria.add(new Criterion(answerThereIsRelocation, Weight.Important));
       criteria.add(new Criterion(answerReimbursesTuition, Weight.Important));
       
       boolean result = profile.matches(criteria);
